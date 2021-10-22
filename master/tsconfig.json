@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "rootDir": "./src",
+    "outDir": "./jsbuild/",
+    "composite": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./src/**/*"]
+}
