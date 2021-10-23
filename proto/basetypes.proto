@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message Task {
+    int32 taskId = 1;
+    string expression = 2;
+}
+
+message SlaveServer {
+    string url = 1;
+    int32 serverId = 2;
+}
+
+message MasterServer {
+    string url = 1;
+}

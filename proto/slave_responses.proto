@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "basetypes.proto";
+
+message SlaveResponse {
+    SlaveExecutionResult result = 1;
+    string msg = 2; // for any additional message
+}
+
+message SlaveExecutionResult {
+    float result = 1;
+}

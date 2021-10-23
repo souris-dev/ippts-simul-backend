@@ -1,0 +1,28 @@
+{
+  "name": "ippts-simul-backend",
+  "version": "1.0.0",
+  "description": "Backend for simulation of IPPTS algorithm on distributed servers.",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/google-protobuf": "^3.15.5",
+    "@types/node": "^16.11.4",
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souris-dev/ippts-simul-backend.git"
+  },
+  "keywords": [
+    "ippts"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/souris-dev/ippts-simul-backend/issues"
+  },
+  "homepage": "https://github.com/souris-dev/ippts-simul-backend#readme"
+}

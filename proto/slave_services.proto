@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "state_init_messages.proto";
+import "slave_responses.proto";
+
+service InitService {
+    rpc InitComputationCosts (ComputationCostMatrix) returns (SlaveResponse) {};
+    rpc InitTaskGraph (TaskGraphAdjMatrix) returns (SlaveResponse) {};
+    rpc InitMasterLocation (MasterServer) returns (SlaveResponse) {};
+}
+
+service ExecutorService {
+    rpc ExecuteTask (Task) returns (SlaveExecutionResult) {};
+}

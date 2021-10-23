@@ -8,6 +8,7 @@
   "files": [],
   "references": [
     { "path": "./slave" },
-    { "path": "./master" }
+    { "path": "./master" },
+    { "path": "./common" }
   ]
 }
