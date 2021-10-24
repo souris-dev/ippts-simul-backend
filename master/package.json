@@ -2,10 +2,11 @@
   "name": "master",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./jsbuild/master.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node master.js"
+    "build": "tsc",
+    "start": "tsc && node jsbuild/master.js"
   },
   "keywords": [],
   "author": "",
