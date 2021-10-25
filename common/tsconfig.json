@@ -6,6 +6,6 @@
       "composite": true,
       "resolveJsonModule": true
     },
-    "include": ["./**/*"]
+    "include": ["./src/*/*", "./src/*"]
   }
   

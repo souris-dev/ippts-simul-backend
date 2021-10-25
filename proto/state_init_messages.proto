@@ -12,16 +12,16 @@ message ComputationCostMatrix {
     repeated ComputationCost computation_costs = 1;
 }
 
-message TaskGraphAdjMatrixEntryWeight {
+message TaskGraphAdjMatrixElemWeight {
     Task task = 1;
     int32 weight = 2;
 }
 
-message TaskGraphAdjMatrixEntry {
+message TaskGraphAdjMatrixElem {
     Task task = 1;
-    reapeated TaskGraphAdjMatrixEntryWeight weights = 2;
+    reapeated TaskGraphAdjMatrixElemWeight weights = 2;
 }
 
 message TaskGraphAdjMatrix {
-    repeated TaskGraphAdjMatrixEntry task_graph = 1;
+    repeated TaskGraphAdjMatrixElem task_graph = 1;
 }

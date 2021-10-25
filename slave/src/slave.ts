@@ -14,4 +14,3 @@ const options: protoLoader.Options = {
 const stateInitBcastProto: grpc.GrpcObject = grpc.loadPackageDefinition(
     protoLoader.loadSync(PROTO_FOLDER + "/state_init_bcase.proto", options)
 );
-
