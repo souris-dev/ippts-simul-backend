@@ -4,9 +4,9 @@
   "description": "",
   "main": "./jsbuild/src/master.js",
   "scripts": {
-    "test": "npm build && mocha ./jsbuild/test/**/*.js",
+    "test": "npm run build && mocha ./jsbuild/test/**/*.js",
     "build": "tsc",
-    "start": "tsc && node jsbuild/src/master.js"
+    "start": "npm run build && node jsbuild/src/master.js"
   },
   "keywords": [],
   "author": "",

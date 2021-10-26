@@ -4,9 +4,9 @@
   "description": "",
   "main": "./jsbuild/slave.js",
   "scripts": {
-    "test": "npm build && mocha jsbuild/test/**/*.js",
+    "test": "npm run build && mocha jsbuild/test/**/*.js",
     "build": "tsc",
-    "start": "npm build && node jsbuild/slave.js"
+    "start": "npm run build && node jsbuild/slave.js"
   },
   "keywords": [],
   "author": "",
