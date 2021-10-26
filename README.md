@@ -36,9 +36,17 @@ This separation into subprojects allows working on them in an easier way, and al
 
 ## Building
 
-First of all, you would want to run `npm install` in the project root folder, in the `master` folder and in the `slave` folder.
+First of all, you would want to run `npm install` in the project root folder, in the `master` folder and in the `slave` folder. So run from the *project root directory*:
 
-To build `master` and `slave` subprojects both, run this from the *project root directory*:
+```sh
+npm install
+cd master
+npm install
+cd ../slave
+npm install
+```
+
+Then, to build `master` and `slave` subprojects both, run this from the *project root directory*:
 
 ```sh
 node build
