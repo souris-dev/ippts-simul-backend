@@ -11,7 +11,9 @@
     "@types/node": "^16.11.4",
     "grpc-tools": "^1.11.2",
     "grpc_tools_node_protoc_ts": "^5.3.2",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "@internal/master": "file:master",
+    "@internal/slave": "file:slave"
   },
   "scripts": {
     "test": "cd master && npm test && cd ../slave && npm test",

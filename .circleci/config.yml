@@ -14,15 +14,7 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - run: rm /tmp/node-project-lockfile
       - node/install-packages:
-          cache-path: ~/project/node_modules
-      - node/install-packages:
-          app-dir: ./master
-          cache-path: ~/project/master/node_modules
-      - node/install-packages:
-          app-dir: ./slave
-          cache-path: ~/project/slave/node_modules
       - run: npm run build
         
   test_master_slave:
