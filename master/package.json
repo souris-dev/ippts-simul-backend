@@ -4,8 +4,8 @@
   "description": "",
   "main": "./jsbuild/src/master.js",
   "scripts": {
-    "test": "tsc && mocha ./jsbuild/test/**/*.js",
-    "build": "tsc",
+    "test": "npx tsc && mocha ./jsbuild/test/**/*.js",
+    "build": "npx tsc",
     "start": "tsc && node jsbuild/src/master.js"
   },
   "keywords": [],
