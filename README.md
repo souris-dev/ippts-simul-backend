@@ -36,7 +36,7 @@ This separation into subprojects allows working on them in an easier way, and al
 
 ## Building
 
-First of all, you would want to run `npm install` in the project root folder, in the `master` folder and in the `slave folder`.
+First of all, you would want to run `npm install` in the project root folder, in the `master` folder and in the `slave` folder.
 
 To build `master` and `slave` subprojects both, run this from the *project root directory*:
 
@@ -60,6 +60,20 @@ node build
 
 ## Testing
 
-The `master` and `slave` subprojects have their own tests for now (integration tests may be added later.)
+The `master` and `slave` subprojects have their own tests for now (integration tests may be added later) that use mocha and chai.
 
 To run tests for a subproject, `cd` into that folder and then run `npm test` (after installing dependencies).
+
+So, from the project root root directory, for running the slave server tests, run:
+
+```sh
+cd slave
+node test
+```
+
+And for running the master server tests, from the project root directory, run:
+
+```sh
+cd master
+node test
+```
