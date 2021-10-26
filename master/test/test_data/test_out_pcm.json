@@ -1,0 +1,292 @@
+[
+  {
+    "task": {
+      "taskId": 0,
+      "expression": "0 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 299
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 299
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 256
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 1,
+      "expression": "1 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 242
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 274
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 222
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 2,
+      "expression": "2 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 89
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 156
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 156
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 3,
+      "expression": "3 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 149
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 149
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 91
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 4,
+      "expression": "4 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 156
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 202
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 189
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 5,
+      "expression": "5 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 72
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 100
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 119
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 6,
+      "expression": "6 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 99
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 85
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 40
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 7,
+      "expression": "7 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 46
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 85
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 97
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 8,
+      "expression": "8 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 41
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 28
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 27
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 9,
+      "expression": "9 + 0"
+    },
+    "predictedCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "predictedCost": 10
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "predictedCost": 4
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "predictedCost": 11
+      }
+    ]
+  }
+]

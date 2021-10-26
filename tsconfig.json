@@ -3,7 +3,8 @@
     "rootDir": ".",
     "outDir": "./jsbuild/",       // not really required
     "resolveJsonModule": true,
-    "composite": true
+    "composite": true,
+    "types": ["mocha", "chai", "node"]
   },
   "files": [],
   "references": [

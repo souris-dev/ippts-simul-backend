@@ -1,0 +1,72 @@
+[
+  {
+    "task": {
+      "taskId": 0,
+      "expression": "0 + 0"
+    },
+    "rankPcm": 284.6666666666667
+  },
+  {
+    "task": {
+      "taskId": 1,
+      "expression": "1 + 0"
+    },
+    "rankPcm": 246
+  },
+  {
+    "task": {
+      "taskId": 2,
+      "expression": "2 + 0"
+    },
+    "rankPcm": 133.66666666666666
+  },
+  {
+    "task": {
+      "taskId": 3,
+      "expression": "3 + 0"
+    },
+    "rankPcm": 129.66666666666666
+  },
+  {
+    "task": {
+      "taskId": 4,
+      "expression": "4 + 0"
+    },
+    "rankPcm": 182.33333333333334
+  },
+  {
+    "task": {
+      "taskId": 5,
+      "expression": "5 + 0"
+    },
+    "rankPcm": 97
+  },
+  {
+    "task": {
+      "taskId": 6,
+      "expression": "6 + 0"
+    },
+    "rankPcm": 74.66666666666667
+  },
+  {
+    "task": {
+      "taskId": 7,
+      "expression": "7 + 0"
+    },
+    "rankPcm": 76
+  },
+  {
+    "task": {
+      "taskId": 8,
+      "expression": "8 + 0"
+    },
+    "rankPcm": 32
+  },
+  {
+    "task": {
+      "taskId": 9,
+      "expression": "9 + 0"
+    },
+    "rankPcm": 8.333333333333334
+  }
+]

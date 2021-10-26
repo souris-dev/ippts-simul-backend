@@ -4,7 +4,8 @@
     "rootDir": "./src",
     "outDir": "./jsbuild/",
     "composite": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["mocha", "chai", "node"]
   },
   "include": ["src/**/*"],
   "references": [

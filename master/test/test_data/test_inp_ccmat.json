@@ -1,0 +1,292 @@
+[
+  {
+    "task": {
+      "taskId": 0,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 64
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 26
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 18
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 1,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 2
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 4
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 16
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 2,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 7
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 17
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 9
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 3,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 27
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 29
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 43
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 4,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 84
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 68
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 17
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 5,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 10
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 52
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 87
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 6,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 48
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 37
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 8
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 7,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 26
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 77
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 75
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 8,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 21
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 20
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 5
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 9,
+      "expression": "0 + 0"
+    },
+    "compCosts": [
+      {
+        "server": {
+          "serverId": 0,
+          "url": ""
+        },
+        "cost": 10
+      },
+      {
+        "server": {
+          "serverId": 1,
+          "url": ""
+        },
+        "cost": 4
+      },
+      {
+        "server": {
+          "serverId": 2,
+          "url": ""
+        },
+        "cost": 11
+      }
+    ]
+  }
+]

@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "rootDir": "./src",
+    "rootDir": ".",
     "outDir": "./jsbuild/",
     "composite": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["mocha", "chai", "node"]
   },
-  "include": ["./src/**/*"],
-  "references": [
-    { "path": "../common" }
-  ]
+  "include": ["./src/**/*", "./src/**/*.json", "test/**/*", "test/**/*.json"],
+  "references": [{ "path": "../common" }]
 }

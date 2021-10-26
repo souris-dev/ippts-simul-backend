@@ -1,6 +1,6 @@
 import * as grpc from "@grpc/grpc-js"
 import * as protoLoader from "@grpc/proto-loader"
-import { generatePCM } from "./ippts/ippts"
+import { calculatePCM } from "./ippts/ippts"
 
 const PROTO_FOLDER: string = "../../proto"
 

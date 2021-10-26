@@ -1,0 +1,782 @@
+[
+  {
+    "task": {
+      "taskId": 0,
+      "expression": "0 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 43
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 89
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 34
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 1,
+      "expression": "1 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 85
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 2,
+      "expression": "2 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 67
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 3,
+      "expression": "3 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 58
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 4,
+      "expression": "4 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 46
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 5,
+      "expression": "5 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 63
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 6,
+      "expression": "6 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 59
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 7,
+      "expression": "7 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 77
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 8,
+      "expression": "8 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 19
+      }
+    ]
+  },
+  {
+    "task": {
+      "taskId": 9,
+      "expression": "9 + 0"
+    },
+    "commCosts": [
+      {
+        "task": {
+          "taskId": 0,
+          "expression": "0 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 1,
+          "expression": "1 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 2,
+          "expression": "2 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 3,
+          "expression": "3 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 4,
+          "expression": "4 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 5,
+          "expression": "5 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 6,
+          "expression": "6 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 7,
+          "expression": "7 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 8,
+          "expression": "8 + 0"
+        },
+        "weight": 0
+      },
+      {
+        "task": {
+          "taskId": 9,
+          "expression": "9 + 0"
+        },
+        "weight": 0
+      }
+    ]
+  }
+]

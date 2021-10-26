@@ -1,20 +1,20 @@
 import * as basetypes from "../../../common/src/types/basetypes";
 
 /* Predict cost matrix will be of the shape:
-{
-    0: {
-        task: basetypes.Task,
-        predictedCosts: [
-            0: { server: instance of basetypes.Server, predictedCost: 3 },
-            1: { server: instance of basetypes.Server, predictedCost: 5 },
-            2: { server: instance of basetypes.Server, predictedCost: 2 }
-        ]
-    },
-    ...
-}
+[
+  {
+    task: basetypes.Task,
+    predictedCosts: [
+      { server: instance of basetypes.Server, predictedCost: 3 },
+      { server: instance of basetypes.Server, predictedCost: 5 },
+      { server: instance of basetypes.Server, predictedCost: 2 }
+    ]
+  },
+  ...
+]
 */
 
-interface PredictCostMatrixWeightElem {
+export interface PredictCostMatrixWeightElem {
   server: basetypes.SlaveServer;
   predictedCost: number;
 }
@@ -23,25 +23,52 @@ interface PredictedCostWeights extends Array<PredictCostMatrixWeightElem> {
   [server: number]: PredictCostMatrixWeightElem;
 }
 
-interface PredictCostMatrixElem {
+export interface PredictCostMatrixElem {
   task: basetypes.Task;
   predictedCosts: PredictedCostWeights;
 }
 
+// Note: For the sake of uniformity, all matrices extend Array
 export interface PredictCostMatrix extends Array<PredictCostMatrixElem> {
   [taskId: number]: PredictCostMatrixElem;
 }
 
-interface TaskPrankArrayElem {
+// This interface has been made to aid in computation
+// For other puposes, use PredictCostMatrix
+export interface PredictCostMatrixMap extends Map<number, PredictCostMatrixElem> {
+  [taskId: number]: PredictCostMatrixElem;
+}
+
+
+/* Shape of PrankArray:
+(Note: i/of stands for "instance of type")
+[
+  {
+    task: i/of basetypes.Task,
+    prank: number
+  },
+  ...
+]*/
+
+export interface PrankArrayElem {
   task: basetypes.Task;
   prank: number;
 }
 
-export interface TaskPrankArray extends Array<TaskPrankArrayElem> {
-  [taskId: number]: TaskPrankArrayElem;
+export interface PrankArray extends Array<PrankArrayElem> {
+  [taskId: number]: PrankArrayElem;
 }
 
-interface RankPcmArrayElem {
+/* Shape of RankPcmArray:
+(Note: i/of stands for "instance of type")
+[
+  {
+    task: i/of basetypes.Task,
+    rankPcm: number
+  },
+  ...
+]*/
+export interface RankPcmArrayElem {
   task: basetypes.Task;
   rankPcm: number;
 }

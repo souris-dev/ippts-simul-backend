@@ -2,17 +2,19 @@
   "name": "master",
   "version": "1.0.0",
   "description": "",
-  "main": "./jsbuild/master.js",
+  "main": "./jsbuild/src/master.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc && mocha ./jsbuild/test/**/*.js",
     "build": "tsc",
-    "start": "tsc && node jsbuild/master.js"
+    "start": "tsc && node jsbuild/src/master.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@grpc/grpc-js": "^1.4.1",
-    "@grpc/proto-loader": "^0.6.6"
+    "@grpc/proto-loader": "^0.6.6",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
   }
 }
