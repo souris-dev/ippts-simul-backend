@@ -16,7 +16,7 @@
     "@internal/slave": "file:slave"
   },
   "scripts": {
-    "test": "cd master && npm test && cd ../slave && npm test",
+    "test": "npm run build && cd master && npm test && cd ../slave && npm test",
     "build": "tsc --build"
   },
   "repository": {
