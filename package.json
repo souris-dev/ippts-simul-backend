@@ -14,7 +14,7 @@
     "typescript": "^4.4.4"
   },
   "scripts": {
-    "test": "mocha --recursive --exit",
+    "test": "echo \"Run tests from within the master and slave subprojects.\" && exit 1",
     "build": "tsc --build"
   },
   "repository": {
