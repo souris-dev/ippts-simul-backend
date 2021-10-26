@@ -1,5 +1,7 @@
 # Backend for IPPTS Algorithm simulation
 
+[![CircleCI](https://circleci.com/gh/souris-dev/ippts-simul-backend.svg?style=svg)](https://circleci.com/gh/souris-dev/ippts-simul-backend)
+
 Simulation of the IPPTS algorithm (task scheduling algorithm) using a distributed system of servers. This repository has the code for the master and slave servers.
 
 ## Directory Structure
