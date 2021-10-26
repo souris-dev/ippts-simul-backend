@@ -4,7 +4,7 @@
   "description": "",
   "main": "./jsbuild/src/master.js",
   "scripts": {
-    "test": "tsc && mocha ./jsbuild/test/**/*.js",
+    "test": "npm build && mocha ./jsbuild/test/**/*.js",
     "build": "tsc",
     "start": "tsc && node jsbuild/src/master.js"
   },
