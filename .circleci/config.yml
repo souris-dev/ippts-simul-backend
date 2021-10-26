@@ -33,7 +33,7 @@ workflows:
   build_all:
     jobs:
       - buildall
-  test_master_slave:
-    jobs:
-      - buildall
-      - test_master_slave
+  #test_master_slave:
+    #jobs:
+    #  - buildall
+    #  - test_master_slave
