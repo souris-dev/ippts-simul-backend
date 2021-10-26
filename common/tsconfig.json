@@ -4,6 +4,7 @@
       "rootDir": ".",
       "outDir": "./jsbuild/",
       "composite": true,
+      "sourceMap": true,
       "resolveJsonModule": true
     },
     "include": ["./src/*/*", "./src/*"]
