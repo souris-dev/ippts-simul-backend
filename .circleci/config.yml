@@ -22,12 +22,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages
-      - run:
-          command: |
-            cd master
-            npm test
-            cd ../slave
-            npm test
+      - run: npm run test
 
 workflows:
   build_all:
