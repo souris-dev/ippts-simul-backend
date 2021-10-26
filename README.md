@@ -60,7 +60,7 @@ cd master
 npm build
 ```
 
-For slave subproject:
+For slave subproject (from project root directory):
 ```sh
 cd slave
 npm build
