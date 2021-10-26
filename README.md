@@ -49,7 +49,7 @@ npm install
 Then, to build `master` and `slave` subprojects both, run this from the *project root directory*:
 
 ```sh
-node build
+npm build
 ```
 
 To build a single subproject (like the `master` subproject), do this from the *project root directory*:
@@ -57,13 +57,13 @@ To build a single subproject (like the `master` subproject), do this from the *p
 For master subproject (from project root directory):
 ```sh
 cd master
-node build
+npm build
 ```
 
 For slave subproject:
 ```sh
 cd slave
-node build
+npm build
 ```
 
 ## Testing
@@ -76,12 +76,12 @@ So, from the project root directory, for running the slave server tests, run:
 
 ```sh
 cd slave
-node test
+npm test
 ```
 
 And for running the master server tests, from the project root directory, run:
 
 ```sh
 cd master
-node test
+npm test
 ```
