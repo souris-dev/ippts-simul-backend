@@ -5,6 +5,7 @@
     "outDir": "./jsbuild/",
     "composite": true,
     "resolveJsonModule": true,
+    "sourceMap": true,
     "types": ["mocha", "chai", "node"]
   },
   "include": ["src/**/*", "test/**/*"],
