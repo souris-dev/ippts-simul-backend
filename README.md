@@ -70,6 +70,12 @@ npm build
 
 The `master` and `slave` subprojects have their own tests for now (integration tests may be added later) that use mocha and chai.
 
+To run all tests in `master` and `slave`, run the following from the project root directory:
+
+```sh
+npm test
+```
+
 To run tests for a subproject, `cd` into that folder and then run `npm test` (after installing dependencies).
 
 So, from the project root directory, for running the slave server tests, run:

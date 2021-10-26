@@ -15,6 +15,7 @@
     "@grpc/grpc-js": "^1.4.1",
     "@grpc/proto-loader": "^0.6.6",
     "chai": "^4.3.4",
+    "datastructures-js": "^10.1.1",
     "mocha": "^9.1.3"
   }
 }
