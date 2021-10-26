@@ -10,7 +10,7 @@ orbs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 jobs:
-  test_master_slave:
+  buildall:
     executor: node/default
     steps:
       - checkout
@@ -22,20 +22,12 @@ jobs:
       - node/install-packages:
           app-dir: ./slave
           cache-path: ~/project/slave/node_modules
-      - run: npm run test
-
-  buildall:
+      - run: npm run build
+        
+  test_master_slave:
     executor: node/default
     steps:
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-      - node/install-packages:
-          app-dir: ./master
-          cache-path: ~/project/master/node_modules
-      - node/install-packages:
-          app-dir: ./slave
-          cache-path: ~/project/slave/node_modules
-      - run: npm run build
+      - run: npm run test
 
 workflows:
   build_all:
