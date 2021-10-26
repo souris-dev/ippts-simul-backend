@@ -30,5 +30,4 @@ workflows:
       - buildall
   test_master_slave:
     jobs:
-      - buildall
       - test_master_slave
