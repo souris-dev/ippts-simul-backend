@@ -72,7 +72,7 @@ The `master` and `slave` subprojects have their own tests for now (integration t
 
 To run tests for a subproject, `cd` into that folder and then run `npm test` (after installing dependencies).
 
-So, from the project root root directory, for running the slave server tests, run:
+So, from the project root directory, for running the slave server tests, run:
 
 ```sh
 cd slave
