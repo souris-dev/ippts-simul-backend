@@ -39,12 +39,12 @@ describe("Calculation of PCM, rankPCM and Pranks: ", () => {
   });
 
   it("Are rankPCMs correct", () => {
-    rankPcm = ip.calculateRankPcm(pcm);
+    rankPcm = ip.calculateRankPcms(pcm);
     expect(rankPcm).to.deep.equal(outRankPcm);
   });
 
   it("Are Pranks correct", () => {
-    var prankMat: PrankArray = ip.calculatePrank(rankPcm, taskGraphMat);
+    var prankMat: PrankArray = ip.calculatePranks(rankPcm, taskGraphMat);
     expect(prankMat).to.deep.equal(outPranks);
   });
 });

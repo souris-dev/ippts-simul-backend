@@ -1,10 +1,12 @@
 import {
+  LhetMatrix,
+  LhetMatrixWeightElem,
   PrankArray,
   PrankArrayElem,
   PredictCostMatrix as PCM,
+  PredictCostMatrixElem,
   PredictCostMatrixMap,
   PredictCostMatrixWeightElem,
-  PredictCostMatrixElem,
   RankPcmArray,
   RankPcmArrayElem,
 } from "../types/ipptstypes";
@@ -16,7 +18,7 @@ import {
 
 // util functions
 
-const getSuccessorTasks = (
+export const getImmediateSuccessorTasks = (
   taskGraph: TaskGraphAdjMatrix,
   taskId: number
 ): Array<Task> => {
@@ -36,7 +38,7 @@ const getSuccessorTasks = (
 /* The mapPcm keys need not be in the correct order */
 const mapPcmToArrayPcm = (mapPcm: PredictCostMatrixMap): PCM => {
   // mapPcm.size is not working for some weird reason
-  const ntasks: number = Object.keys(mapPcm).length
+  const ntasks: number = Object.keys(mapPcm).length;
   let pcm: PCM = [];
 
   for (let i = 0; i < ntasks; i++) {
@@ -70,7 +72,6 @@ export function calculatePCM(
     // note that we cannot take the second argument of this function
     // as the real taskId because this is the reversed graph
 
-
     if (ti.task.taskId == ntasks - 1) {
       // exit task
       // set the values as equal to those in the computation matrix
@@ -89,7 +90,7 @@ export function calculatePCM(
     }
 
     // if we're here, then it's not the exit task
-    let successorTasks: Array<Task> = getSuccessorTasks(
+    let successorTasks: Array<Task> = getImmediateSuccessorTasks(
       taskGraph,
       ti.task.taskId
     );
@@ -109,7 +110,6 @@ export function calculatePCM(
 
           // instead of gamma, I'm using y here
           for (let sy = 0; sy < nservers; sy++) {
-
             let value: number =
               mapPcm[tk.taskId].predictedCosts[sy].predictedCost +
               computationCostMat[ti.task.taskId].compCosts[sy].cost +
@@ -149,7 +149,7 @@ export function calculatePCM(
   return pcm;
 }
 
-export function calculateRankPcm(pcm: PCM): RankPcmArray {
+export function calculateRankPcms(pcm: PCM): RankPcmArray {
   let rankPcmArray: RankPcmArray = [];
   let nservers: number = pcm[0].predictedCosts.length;
 
@@ -157,7 +157,7 @@ export function calculateRankPcm(pcm: PCM): RankPcmArray {
     // functional js looks weird doesn't it, lol
     // this just sums values (for each server) the PCM entry for a task
     // and divides by the number of servers
-    
+
     let rankPcm: number =
       matTaskElem.predictedCosts.reduce(
         (acc: number, b: PredictCostMatrixWeightElem): number =>
@@ -171,7 +171,7 @@ export function calculateRankPcm(pcm: PCM): RankPcmArray {
   return rankPcmArray;
 }
 
-export function calculatePrank(
+export function calculatePranks(
   rankPcmArr: RankPcmArray,
   taskGraph: TaskGraphAdjMatrix
 ): PrankArray {
@@ -185,10 +185,37 @@ export function calculatePrank(
         // recall that outd(ti) = number of successor tasks of ti
         prank:
           rankPcmArrayElem.rankPcm *
-          getSuccessorTasks(taskGraph, rankPcmArrayElem.task.taskId).length,
+          getImmediateSuccessorTasks(taskGraph, rankPcmArrayElem.task.taskId).length,
       };
     }
   );
 
   return prankArr;
+}
+
+export function calculateLhetMat(
+  pcm: PCM,
+  compCostMat: ComputationCostMatrix
+): LhetMatrix {
+  let lhetMat: LhetMatrix = [];
+
+  pcm.forEach((pcmMatElem: PredictCostMatrixElem) => {
+    lhetMat.push({
+      task: pcmMatElem.task,
+      lhets: pcmMatElem.predictedCosts.map(
+        (serverCost: PredictCostMatrixWeightElem): LhetMatrixWeightElem => {
+          return {
+            server: serverCost.server,
+            lhet:
+              serverCost.predictedCost -
+              compCostMat[pcmMatElem.task.taskId].compCosts[
+                serverCost.server.serverId
+              ].cost,
+          };
+        }
+      ),
+    });
+  });
+
+  return lhetMat;
 }

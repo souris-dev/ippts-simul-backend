@@ -14,7 +14,7 @@ import * as basetypes from "./basetypes";
 ]
 */
 
-interface ComputationCost {
+export interface ComputationCost {
   server: basetypes.SlaveServer;
   cost: number;
 }
@@ -49,7 +49,7 @@ export interface ComputationCostMatrix
 ]
 */
 
-interface CommCost {
+export interface CommCost {
   task: basetypes.Task;
   weight: number;
 }
@@ -65,5 +65,10 @@ interface TaskGraphAdjMatrixElem {
 }
 
 export interface TaskGraphAdjMatrix extends Array<TaskGraphAdjMatrixElem> {
+  [taskId: number]: TaskGraphAdjMatrixElem;
+}
+
+// For convenience, a mappish version of the above
+export interface TaskGraphAdjMatrixMap extends Map<number, TaskGraphAdjMatrixElem> {
   [taskId: number]: TaskGraphAdjMatrixElem;
 }
