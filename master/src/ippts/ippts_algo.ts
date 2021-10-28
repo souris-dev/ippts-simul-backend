@@ -92,7 +92,7 @@ const getImmediatePredecessorTasks = (
 
 // IPPTS algorithm
 
-export function assignProcessors(
+export function assignTasksToServers(
   taskGraph: TaskGraphAdjMatrix,
   compCostMat: ComputationCostMatrix
 ): ServerAssArray {
