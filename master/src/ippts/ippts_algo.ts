@@ -7,10 +7,7 @@ import {
   ServerAssArray,
   ServerAssMap,
   EftMatrixMap,
-  PredictCostMatrixElem,
   LheadMatrixMap,
-  LheadMatrixElem,
-  LheadMatrixWeightElem,
 } from "../types/ipptstypes";
 import { SlaveServer, Task } from "../../../common/src/types/basetypes";
 import {
@@ -114,14 +111,6 @@ export function assignProcessors(
       priority: (taskElem: PrankArrayElem) => taskElem.prank,
     });
 
-  // stores the finish time of the last task assigned to each server
-  let lastTaskFinishTime: Array<number> = [];
-
-  // initialize it as 0 for all servers
-  for (let i: number = 0; i < nservers; i++) {
-    lastTaskFinishTime.push(0);
-  }
-
   taskQ.enqueue(prankArr[0]); // enqueue first task
 
   let eftMatMap: EftMatrixMap = <EftMatrixMap>{};
@@ -151,7 +140,17 @@ export function assignProcessors(
     };
   });
 
+  // -----------------------------------------------------------
   // start assigning processors
+  // -----------------------------------------------------------
+
+  // stores the finish time of the last task assigned to each server
+  let lastTaskFinishTime: Array<number> = [];
+
+  // initialize it as 0 for all servers
+  for (let i: number = 0; i < nservers; i++) {
+    lastTaskFinishTime.push(0);
+  }
 
   let isFirstTask: boolean = true;
 
@@ -178,33 +177,84 @@ export function assignProcessors(
           };
         }),
       };
-
-      // find the server with the minimum lheadEft
-      // TODO: what about when one or more servers have same lhead?
-      let minLheadServer: SlaveServer = lheadEftMatMap[ti.taskId].lheads.reduce(
-        (acc, b) => (acc.lhead < b.lhead ? acc : b)
-      ).server;
-
-      let eft: number = eftMatMap[ti.taskId].efts[minLheadServer.serverId].eft;
-      let w: number =
-        compCostMat[ti.taskId].compCosts[minLheadServer.serverId].cost;
-      let est: number = eft - w;
-
-      // assign this task to the server with min lhead
-      sam[ti.taskId] = { task: ti, server: minLheadServer, est: est, eft: eft };
-      lastTaskFinishTime[minLheadServer.serverId] = eft;
-
-      // push successor tasks of ti into the priority queue
-      successorTasks[ti.taskId].successors.forEach((successor: Task) => {
-        // note that the priority queue stores tasks as PrankArrayElem
-        taskQ.enqueue(prankArr[ti.taskId] as PrankArrayElem);
-        // 'as' typecast is not needed but here just for making it self-documenting code
-      });
     }
     // If not first task:
     else {
+      /* Steps to find EFT(ti, sj):
 
+      1. Find maxprev = max(predec efts + commcost respectively for each, same server last task eft + 0), where commcost = 0 when same servers.
+      2. EFT(ti, sj) = maxprev + computationcost
+
+      */
+
+      // find the efts of this task:
+      let predTasks: Array<Task> = predecessorTasks[ti.taskId];
+
+      eftMatMap[ti.taskId] = { task: ti, efts: [] };
+
+      for (let server = 0; server < nservers; server++) {
+        let eft: number;
+        let maxEst: number = 0;
+
+        for (let j = 0; j < predTasks.length; j++) {
+          let predTaskId: number = predTasks[j].taskId;
+          let est: number = eftMatMap[predTaskId].efts[server].eft;
+
+          // if not same server, add communication cost
+          if (server != sam[predTaskId].server.serverId) {
+            est += taskGraph[predTaskId].commCosts[ti.taskId].weight;
+          }
+
+          if (est > maxEst) {
+            maxEst = est;
+          }
+        }
+
+        // also consider same server last task eft
+        if (lastTaskFinishTime[server] > maxEst) {
+          maxEst = lastTaskFinishTime[server];
+        }
+
+        eft = maxEst + compCostMat[ti.taskId].compCosts[server].cost;
+        eftMatMap[ti.taskId].efts.push({
+          server: compCostMat[ti.taskId].compCosts[server].server,
+          eft: eft,
+        });
+      }
     }
+
+    // find lhead_eft(ti, sj):
+    lheadEftMatMap[ti.taskId] = {
+      task: ti,
+      lheads: eftMatMap[ti.taskId].efts.map(({ server: s, eft: eft }) => {
+        return {
+          server: s,
+          lhead: eft + lhetMat[ti.taskId].lhets[s.serverId].lhet,
+        };
+      }),
+    };
+
+    // find the server with the minimum lheadEft
+    // TODO: what about when one or more servers have same lhead?
+    let minLheadServer: SlaveServer = lheadEftMatMap[ti.taskId].lheads.reduce(
+      (acc, b) => (acc.lhead < b.lhead ? acc : b)
+    ).server;
+
+    let eft: number = eftMatMap[ti.taskId].efts[minLheadServer.serverId].eft;
+    let w: number =
+      compCostMat[ti.taskId].compCosts[minLheadServer.serverId].cost;
+    let est: number = eft - w;
+
+    // assign this task to the server with min lhead
+    sam[ti.taskId] = { task: ti, server: minLheadServer, est: est, eft: eft };
+    lastTaskFinishTime[minLheadServer.serverId] = eft;
+
+    // push successor tasks of ti into the priority queue
+    successorTasks[ti.taskId].successors.forEach((successor: Task) => {
+      // note that the priority queue stores tasks as PrankArrayElem
+      taskQ.enqueue(prankArr[ti.taskId] as PrankArrayElem);
+      // 'as' typecast is not needed but here just for making it self-documenting code
+    });
   }
 
   return serverAssMapToArray(sam);
