@@ -176,7 +176,7 @@ Shape of ServerAssMap (mappish) is:
 /* IMPORTANT NOTE:
 The ServerAssArray (arrayish) has the tasks in 
 the order of selection and assignment, so its "keys" are actually
-the order of task assignment (and execution) during the IPPTS algorithm. 
+the order of execution (i.e., ordered by start time of the task) during the IPPTS algorithm. 
 
 For the ServerAssMap (mappish), the keys are instead the
 taskIds for the tasks assigned to the processors. */
@@ -185,12 +185,11 @@ export interface ServerAssArray extends Array<ServerAss> {
   [taskOrder: number]: ServerAss;
 }
 
-export interface ServerAssMap
-  extends Map<number, ServerAss> {
+export class ServerAssMap extends Map<number, ServerAss> {
   [taskId: number]: ServerAss;
 }
 
-export interface ServerAss {
+export class ServerAss {
   task: basetypes.Task;
   server: basetypes.SlaveServer;
   est: number; // estimated start time

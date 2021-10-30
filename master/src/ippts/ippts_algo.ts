@@ -8,6 +8,7 @@ import {
   ServerAssMap,
   EftMatrixMap,
   LheadMatrixMap,
+  ServerAss,
 } from "../types/ipptstypes";
 import { SlaveServer, Task } from "../../../common/src/types/basetypes";
 import {
@@ -25,17 +26,25 @@ import {
   getImmediateSuccessorTasks,
 } from "./ippts";
 
-import { MaxPriorityQueue } from "datastructures-js";
+import { MaxPriorityQueue, PriorityQueueItem } from "datastructures-js";
+import { inspect } from "util";
 
 // utility functions
 
-const serverAssMapToArray = (sam: ServerAssMap): ServerAssArray => {
+/* Returns a task-server assignment array, with the
+tasks ordered in the order of start times (est), given the order of insertion and a server assignment map. */
+const serverAssMapToArray = (
+  sam: ServerAssMap,
+): ServerAssArray => {
   const ntasks: number = Object.keys(sam).length;
   let saa: ServerAssArray = [];
 
-  for (let i = 0; i < ntasks; i++) {
-    saa.push(sam[i]);
+  for (let taskId = 0; taskId < ntasks; taskId++) {
+    saa.push(sam[taskId]);
   }
+
+  // sort in (ascending) order of est
+  saa.sort((a: ServerAss, b: ServerAss) => a.est - b.est);
 
   return saa;
 };
@@ -62,12 +71,16 @@ const createPredecessorGraph = (
   let predGraph: TaskGraphAdjMatrixMap = <TaskGraphAdjMatrixMap>{};
   let ntasks: number = taskGraph.length;
 
+  // I freaking need a deep copy of the array
+  // js you are a big idiot, why the hell is there no builtin method
+  // to deep copy an array!!
+  let taskGraphCopy: TaskGraphAdjMatrix = JSON.parse(JSON.stringify(taskGraph));
   // initialize the map first:
   for (let i = 0; i < ntasks; i++) {
-    predGraph[i] = taskGraph[i];
+    predGraph[i] = taskGraphCopy[i];
 
     // clear all communication weights to 0
-    for (let j = 0; j < predGraph[i].commCosts.length; i++) {
+    for (let j = 0; j < predGraph[i].commCosts.length; j++) {
       predGraph[i].commCosts[j].weight = 0;
     }
   }
@@ -76,7 +89,7 @@ const createPredecessorGraph = (
   taskGraph.forEach(({ task: ti, commCosts: tiTo }) => {
     tiTo.forEach(({ task: tj, weight: wt }) => {
       // add reverse edge
-      predGraph[tj.taskId].commCosts[ti.taskId] = tiTo[tj.taskId];
+      predGraph[tj.taskId].commCosts[ti.taskId] = { task: ti, weight: wt };
     });
   });
 
@@ -90,8 +103,9 @@ const getImmediatePredecessorTasks = (
   taskId: number
 ): Array<Task> => getImmediateSuccessorTasks(reverseTaskGraph, taskId);
 
-// IPPTS algorithm
-
+/*  Performs the IPPTS algorithm.
+Returns a task-server assignment array, with the
+tasks ordered in the order of assignment. */
 export function assignTasksToServers(
   taskGraph: TaskGraphAdjMatrix,
   compCostMat: ComputationCostMatrix
@@ -110,8 +124,6 @@ export function assignTasksToServers(
     new MaxPriorityQueue<PrankArrayElem>({
       priority: (taskElem: PrankArrayElem) => taskElem.prank,
     });
-
-  taskQ.enqueue(prankArr[0]); // enqueue first task
 
   let eftMatMap: EftMatrixMap = <EftMatrixMap>{};
   let lheadEftMatMap: LheadMatrixMap = <LheadMatrixMap>{};
@@ -152,10 +164,20 @@ export function assignTasksToServers(
     lastTaskFinishTime.push(0);
   }
 
+  // keeps track if a task is already enqueued in the priority queue
+  let isEnqd: Map<number, boolean> = new Map<number, boolean>();
+
+  for (let task of taskGraph) {
+    isEnqd[task.task.taskId] = false;
+  }
+
   let isFirstTask: boolean = true;
 
+  taskQ.enqueue(prankArr[0]); // enqueue first task
+  isEnqd[0] = true;
+
   while (!taskQ.isEmpty()) {
-    let { task: ti } = taskQ.dequeue() as PrankArrayElem;
+    let { task: ti } = taskQ.dequeue()["element"] as PrankArrayElem;
 
     // calculate EFT(ti, pj) for j in range [0, nservers]
     if (isFirstTask) {
@@ -188,7 +210,7 @@ export function assignTasksToServers(
       */
 
       // find the efts of this task:
-      let predTasks: Array<Task> = predecessorTasks[ti.taskId];
+      let { predecessors: predTasks } = predecessorTasks[ti.taskId];
 
       eftMatMap[ti.taskId] = { task: ti, efts: [] };
 
@@ -198,7 +220,7 @@ export function assignTasksToServers(
 
         for (let j = 0; j < predTasks.length; j++) {
           let predTaskId: number = predTasks[j].taskId;
-          let est: number = eftMatMap[predTaskId].efts[server].eft;
+          let est: number = sam[predTaskId].eft;
 
           // if not same server, add communication cost
           if (server != sam[predTaskId].server.serverId) {
@@ -216,6 +238,7 @@ export function assignTasksToServers(
         }
 
         eft = maxEst + compCostMat[ti.taskId].compCosts[server].cost;
+
         eftMatMap[ti.taskId].efts.push({
           server: compCostMat[ti.taskId].compCosts[server].server,
           eft: eft,
@@ -249,10 +272,14 @@ export function assignTasksToServers(
     sam[ti.taskId] = { task: ti, server: minLheadServer, est: est, eft: eft };
     lastTaskFinishTime[minLheadServer.serverId] = eft;
 
-    // push successor tasks of ti into the priority queue
     successorTasks[ti.taskId].successors.forEach((successor: Task) => {
       // note that the priority queue stores tasks as PrankArrayElem
-      taskQ.enqueue(prankArr[ti.taskId] as PrankArrayElem);
+      // check if that successor is already inserted in the queue
+      // to prevent queueing multiple times
+      if (!isEnqd[successor.taskId]) {
+        taskQ.enqueue(prankArr[successor.taskId]);
+        isEnqd[successor.taskId] = true;
+      }
       // 'as' typecast is not needed but here just for making it self-documenting code
     });
   }

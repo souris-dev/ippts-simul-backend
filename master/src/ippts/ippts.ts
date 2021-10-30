@@ -25,12 +25,12 @@ export const getImmediateSuccessorTasks = (
   // find the successor tasks (i.e, neighbours)
   let successorTasks: Array<Task> = [];
 
-  taskGraph[taskId].commCosts.forEach((elem): void => {
+  taskGraph[taskId].commCosts.forEach((elem): void => {    
     if (elem.weight > 0) {
       successorTasks.push(elem.task);
     }
   });
-
+  
   return successorTasks;
 };
 
