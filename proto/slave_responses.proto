@@ -2,11 +2,12 @@ syntax = "proto3";
 
 import "basetypes.proto";
 
-message SlaveResponse {
-    SlaveExecutionResult result = 1;
-    string msg = 2; // for any additional message
+message ExecutionResponse {
+    Task task = 1;
+    ExecutionResult result = 2;
+    string msg = 3; // for any additional message
 }
 
-message SlaveExecutionResult {
+message ExecutionResult {
     float result = 1;
 }

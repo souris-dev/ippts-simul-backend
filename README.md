@@ -25,12 +25,14 @@ project root
          |--- types
     |--- tsconfig.json
 --- proto
+--- scripts
 --- package.json
 --- tsconfig.json
 ```
 
 The `master` and `slave` directories are typescript subprojects for the master server and the slave servers respectively.
 The `common` folder has common type definitions for slave and master. The `proto` folder has the ProtoBuf definitions for gRPC; these files will be used by both the master and the slaves.
+The `scripts` directory contains useful OS-specific scripts for generating typescript definitions from the .proto files in the proto directory. These scripts need not be invoked directly (running `npm run build` from the *project root directory* runs them automatically).
 
 The `master` and `slave` subprojects have their own `package.json` and their own dependencies. This project as a whole also has some dependencies common to both of them (mostly typescript type definitions) that can be found in the package.json file of the root folder of the repository.
 
@@ -67,6 +69,10 @@ For slave subproject (from project root directory):
 cd slave
 npm run build
 ```
+
+***Note***:
+1. If there are any changes in the proto folder (like new .proto files or modifications to existing ones), then please run `npm run proto-gen` from the *project root directory* to generate updated typescript definitions from the .proto files. 
+2. If you run `npm run build` from the *project root directory*, then `npm run proto-gen` is executed automatically before building the `master` and `slave` projects. However, it will not be executed if `npm run build` is run from within the `master` or the `slave` folder.
 
 ## Testing
 

@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "npm run build && cd master && npm test && cd ../slave && npm test",
-    "build": "tsc --build"
+    "proto-gen": "node scripts/do_protogen.js",
+    "build": "npm run proto-gen && echo Running tsc --build && tsc --build"
   },
   "repository": {
     "type": "git",
