@@ -25,10 +25,3 @@ describe("Computation of server task assignment array: ", () => {
     expect(sam).to.deep.equal(serverAssignOutArr);
   })
 })
-
-/*let sam: ServerAssArray = ipalgo.assignTasksToServers(
-  taskGraphMat,
-  compCostSample
-);
-console.log(inspect(sam, { depth: null }));
-*/
