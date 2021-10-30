@@ -3,6 +3,7 @@
 1. Find maxprev = max(predec efts + commcost respectively for each, same processor last task eft + 0), where commcost = 0 when same processors/servers.
 2. EFT(ti, pj) = maxprev + computationcost
 
+<pre>
 t1	    64		                            36		                    18<-
 t2	    43+18+2=63	                        43+18+4=65	                0+18+16=34<-
 t5	    85+34+84=203	                    85+34+68=187	            0+34+17=51<-
@@ -13,4 +14,4 @@ t8	    0+124+26=150<-	                    46+51+77=174                0+94+75=16
 t7      max(94+58,150+0)+48=200             58+94+37=189                0+94+8=102<-
 t9      max(124+0,102+59,150+0)+21=182<-    63+124+20=207               max(124+63,102+0,102+0)+5=192
 t10     max(150+0,182+0,182+0)+10=192<-     max(150+77,172+19,0)+4=231  max(150+77,172+19,102+0)+11=238
-
+</pre>
