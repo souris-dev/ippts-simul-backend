@@ -4,17 +4,17 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from "grpc";
+import * as grpc from "@grpc/grpc-js";
 import * as slave_services_pb from "./slave_services_pb";
 import * as master_requests_pb from "./master_requests_pb";
 import * as slave_responses_pb from "./slave_responses_pb";
 
-interface IExecutorServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
-    executeTask: IExecutorServiceService_IExecuteTask;
+interface ITaskExecutorService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
+    executeTask: ITaskExecutorService_IExecuteTask;
 }
 
-interface IExecutorServiceService_IExecuteTask extends grpc.MethodDefinition<master_requests_pb.ExecutableTask, slave_responses_pb.ExecutionResponse> {
-    path: "/ExecutorService/ExecuteTask";
+interface ITaskExecutorService_IExecuteTask extends grpc.MethodDefinition<master_requests_pb.ExecutableTask, slave_responses_pb.ExecutionResponse> {
+    path: "/TaskExecutor/ExecuteTask";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<master_requests_pb.ExecutableTask>;
@@ -23,20 +23,20 @@ interface IExecutorServiceService_IExecuteTask extends grpc.MethodDefinition<mas
     responseDeserialize: grpc.deserialize<slave_responses_pb.ExecutionResponse>;
 }
 
-export const ExecutorServiceService: IExecutorServiceService;
+export const TaskExecutorService: ITaskExecutorService;
 
-export interface IExecutorServiceServer {
+export interface ITaskExecutorServer extends grpc.UntypedServiceImplementation {
     executeTask: grpc.handleUnaryCall<master_requests_pb.ExecutableTask, slave_responses_pb.ExecutionResponse>;
 }
 
-export interface IExecutorServiceClient {
+export interface ITaskExecutorClient {
     executeTask(request: master_requests_pb.ExecutableTask, callback: (error: grpc.ServiceError | null, response: slave_responses_pb.ExecutionResponse) => void): grpc.ClientUnaryCall;
     executeTask(request: master_requests_pb.ExecutableTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: slave_responses_pb.ExecutionResponse) => void): grpc.ClientUnaryCall;
     executeTask(request: master_requests_pb.ExecutableTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: slave_responses_pb.ExecutionResponse) => void): grpc.ClientUnaryCall;
 }
 
-export class ExecutorServiceClient extends grpc.Client implements IExecutorServiceClient {
-    constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+export class TaskExecutorClient extends grpc.Client implements ITaskExecutorClient {
+    constructor(address: string, credentials: grpc.ChannelCredentials, options?: Partial<grpc.ClientOptions>);
     public executeTask(request: master_requests_pb.ExecutableTask, callback: (error: grpc.ServiceError | null, response: slave_responses_pb.ExecutionResponse) => void): grpc.ClientUnaryCall;
     public executeTask(request: master_requests_pb.ExecutableTask, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: slave_responses_pb.ExecutionResponse) => void): grpc.ClientUnaryCall;
     public executeTask(request: master_requests_pb.ExecutableTask, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: slave_responses_pb.ExecutionResponse) => void): grpc.ClientUnaryCall;

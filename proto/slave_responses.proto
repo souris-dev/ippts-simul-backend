@@ -4,10 +4,6 @@ import "basetypes.proto";
 
 message ExecutionResponse {
     Task task = 1;
-    ExecutionResult result = 2;
+    float result = 2;
     string msg = 3; // for any additional message
-}
-
-message ExecutionResult {
-    float result = 1;
 }

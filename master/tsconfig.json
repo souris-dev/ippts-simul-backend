@@ -6,8 +6,9 @@
     "composite": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "types": ["mocha", "chai", "node"]
+    "types": ["mocha", "chai", "node"],
+    "allowJs": true
   },
-  "include": ["./src/**/*", "./src/**/*.json", "test/**/*", "test/**/*.json"],
+  "include": ["./src/**/*", "./src/**/*.json", "test/**/*", "test/**/*.json", "protogen/**/*"],
   "references": [{ "path": "../common" }]
 }

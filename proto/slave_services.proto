@@ -3,6 +3,6 @@ syntax = "proto3";
 import "master_requests.proto";
 import "slave_responses.proto";
 
-service ExecutorService {
+service TaskExecutor {
     rpc ExecuteTask (ExecutableTask) returns (ExecutionResponse) {};
 }

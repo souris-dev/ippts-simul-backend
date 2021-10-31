@@ -7,8 +7,9 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "types": ["mocha", "chai", "node"],
+    "allowJs": true,
   },
-  "include": ["src/**/*", "test/**/*"],
+  "include": ["src/**/*", "test/**/*", "protogen/*"],
   "references": [
     { "path": "../common" }
   ]
