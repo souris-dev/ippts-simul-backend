@@ -6,7 +6,10 @@
   "scripts": {
     "test": "npm run build && mocha jsbuild/test/**/*.js",
     "build": "tsc",
-    "start": "npm run build && node jsbuild/src/slave.js"
+    "start": "npm run build && node jsbuild/src/slave.js",
+    "docker:build": "npm run build && docker build -t sachett/ippts_simul_backend:slave .",
+    "docker:run": "docker run -dp 50051:50051 sachett/ippts_simul_backend:slave",
+    "docker:push": "docker push sachett/ippts_simul_backend:slave"
   },
   "keywords": [],
   "author": "",

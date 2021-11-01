@@ -10,19 +10,20 @@ import dotenv = require("dotenv");
 dotenv.config();
 
 const port: string | number = process.env.PORT || 50051;
+const hostIp: string = process.env.HOSTBINDIP || "0.0.0.0";
 const slaveId: string | number = process.env.SLAVEID || 0;
 
 const server: grpc.Server = new grpc.Server();
 server.addService(TaskExecutor.service, TaskExecutor.handler);
 
 server.bindAsync(
-  `127.0.0.1:${port}`,
+  `${hostIp}:${port}`,
   grpc.ServerCredentials.createInsecure(),
   (err: Error, port: number) => {
     if (err != null) {
       console.error(err);
     }
     server.start();
-    console.log(`SlaveServer ${slaveId} listening on port ${port}`);
+    console.log(`SlaveServer ${slaveId} listening on port ${port} at ${hostIp}`);
   }
 );
