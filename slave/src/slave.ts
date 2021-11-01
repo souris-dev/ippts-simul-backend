@@ -12,22 +12,17 @@ dotenv.config();
 const port: string | number = process.env.PORT || 50051;
 const slaveId: string | number = process.env.SLAVEID || 0;
 
-type StartServerFunc = () => void;
+const server: grpc.Server = new grpc.Server();
+server.addService(TaskExecutor.service, TaskExecutor.handler);
 
-const startServer: StartServerFunc = (): void => {
-  const server: grpc.Server = new grpc.Server();
-  server.addService(TaskExecutor.service, TaskExecutor.handler);
-
-  server.bindAsync(
-    `0.0.0.0:${port}`,
-    grpc.ServerCredentials.createInsecure(),
-    (err: Error, port: number) => {
-      if (err != null) {
-        console.error(err);
-      }
-      console.log(`SlaveServer ${slaveId} listening on port ${port}`);
+server.bindAsync(
+  `127.0.0.1:${port}`,
+  grpc.ServerCredentials.createInsecure(),
+  (err: Error, port: number) => {
+    if (err != null) {
+      console.error(err);
     }
-  );
-};
-
-startServer();
+    server.start();
+    console.log(`SlaveServer ${slaveId} listening on port ${port}`);
+  }
+);

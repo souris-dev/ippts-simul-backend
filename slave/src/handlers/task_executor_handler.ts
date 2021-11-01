@@ -1,7 +1,10 @@
 import * as grpc from "@grpc/grpc-js";
 
 import { ExecutionResponse } from "../../protogen/slave_responses_pb";
-import { ExecutableTask } from "../../protogen/master_requests_pb";
+import {
+  ExecutableTask,
+  ExecutableTaskQueue,
+} from "../../protogen/master_requests_pb";
 import {
   TaskExecutorService,
   ITaskExecutorServer,
@@ -48,24 +51,53 @@ const TaskExecutorHandler: ITaskExecutorServer = {
    * @param callback
    */
   executeTask: (
-    call: grpc.ServerUnaryCall<ExecutableTask, ExecutionResponse>,
-    callback: grpc.sendUnaryData<ExecutionResponse>
+    call: grpc.ServerWritableStream<ExecutableTask, ExecutionResponse>
   ) => {
     executeAsync(call.request)
       .then((results: [number, unknown]) => {
         var response: ExecutionResponse = new ExecutionResponse();
+        response.setTask(call.request.getTask());
         response.setResult(results[0]);
-        response.setMsg("OK");
-        callback(null, response);
+        response.setMsg("OK");        
+        call.write(response);
       })
       .catch((reason: any) => {
         var response: ExecutionResponse = new ExecutionResponse();
         response.setMsg("NOT_OK " + reason.toString());
-        callback(
-          { message: reason.toString() as string, name: "NOT_OK" },
-          response
-        );
-      });
+        call.write(response);
+      })
+      .finally(() => call.end());
+  },
+
+  /**
+   * Implements the ExecuteTaskQueue rpc method.
+   * Used when there are more than one tasks to be run on the server
+   * sequentially.
+   */
+  executeTaskQueue: async (
+    call: grpc.ServerWritableStream<ExecutableTaskQueue, ExecutionResponse>
+  ) => {
+    var promises: Array<Promise<[number, unknown]>> = [];
+    for (var execTask of call.request.getTasksList()) {
+      var err: any = null;
+      try {
+        var [res] = await executeAsync(execTask);
+      } catch (error: any) {
+        err = error;
+      }
+
+      var response: ExecutionResponse = new ExecutionResponse();
+      response.setTask(execTask.getTask());
+      if (err == null) {
+        response.setMsg("OK");
+        response.setResult(res);
+      } else {
+        response.setMsg("NOT_OK " + err.toString());
+      }
+      call.write(response);
+    }
+
+    call.end();
   },
 };
 
