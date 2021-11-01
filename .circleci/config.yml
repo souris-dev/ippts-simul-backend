@@ -29,7 +29,15 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - buildall
+      - buildall:
+          filters:
+            branches:
+              only:
+                - main
       - test_master_slave:
-         requires:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
            - buildall
