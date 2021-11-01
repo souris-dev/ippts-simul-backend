@@ -109,6 +109,8 @@ Currently, these scripts are set up only for the slave server subproject (since 
 
 ***Note***: Ensure that docker is set up on your system and you are logged in with your Docker Hub account if you want to push to and pull images from Docker Hub.
 
+*The steps below describe the steps using the docker CLI. You can, of course, use a GUI for the same too (like Docker Desktop).*
+
 ### Manually Building the Docker Image
 
 #### Slave server
@@ -131,6 +133,8 @@ cd slave
     ```sh
     npm run docker:run
     ```
+
+    The docker container binds to ***0.0.0.0:50051*** by default if you use this command.
 
     - To push a built image of the slave server to docker hub, run:
 
