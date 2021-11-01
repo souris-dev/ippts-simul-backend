@@ -99,3 +99,60 @@ And for running the master server tests, from the project root directory, run:
 cd master
 npm run test
 ```
+
+## Docker Images
+
+This section describes how you can create a docker image, run a container using that image, and push the image
+to docker hub.
+
+Currently, these scripts are set up only for the slave server subproject (since its development is complete), but will also be set up for the master server subproject very soon.
+
+***Note***: Ensure that docker is set up on your system and you are logged in with your Docker Hub account if you want to push to and pull images from Docker Hub.
+
+### Manually Building the Docker Image
+
+#### Slave server
+
+1. From the *project root directory*, go to the slave subproject directory using:
+
+```sh
+cd slave
+```
+
+2. Now run the following based on what you want to do:
+    - To build a docker image, run:
+
+    ```sh
+    npm run docker:build
+    ```
+
+    - To run a container using the built image, run:
+
+    ```sh
+    npm run docker:run
+    ```
+
+    - To push a built image of the slave server to docker hub, run:
+
+    ```sh
+    npm run docker:push
+    ```
+
+### Getting the Docker Image from Docker Hub
+
+Alternatively, instead of building the docker image manually, you can pull the docker image from Docker Hub.
+(This may or may not be a little outdated though.)
+
+See (the Docker Hub repository)[https://hub.docker.com/r/sachett/ippts_simul_backend] and run the pull command there to pull the image. *Use the tag `slave` for pulling a docker image of the slave server.*
+
+So, run this to pull the docker image of the slave server:
+
+```sh
+docker pull sachett/ippts_simul_backend:slave
+```
+
+When the `master` tag is added for the master server, you can pull the master server image using:
+
+```sh
+docker pull sachett/ippts_simul_backend:master
+```
