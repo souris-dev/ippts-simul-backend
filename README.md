@@ -73,6 +73,7 @@ npm run build
 ***Note***:
 1. If there are any changes in the proto folder (like new .proto files or modifications to existing ones), then please run `npm run proto-gen` from the *project root directory* to generate updated typescript definitions from the .proto files. 
 2. If you run `npm run build` from the *project root directory*, then `npm run proto-gen` is executed automatically before building the `master` and `slave` projects. However, it will not be executed if `npm run build` is run from within the `master` or the `slave` folder.
+3. Currently, `npm run proto-gen` only works on Windows systems. An equivalent shell script for POSIX based systems will be added soon.
 
 ## Testing
 
