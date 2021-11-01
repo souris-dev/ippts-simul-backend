@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-import "state_init_messages.proto";
+import "master_requests.proto";
 import "slave_responses.proto";
 
-service InitService {
-    rpc InitComputationCosts (ComputationCostMatrix) returns (SlaveResponse) {};
-    rpc InitTaskGraph (TaskGraphAdjMatrix) returns (SlaveResponse) {};
-    rpc InitMasterLocation (MasterServer) returns (SlaveResponse) {};
-}
+// The service below has server-side streaming RPC's 
+// because the connection needs to be kept alive till the task finishes
+service TaskExecutor {
+    // For a single task:
+    rpc ExecuteTask (ExecutableTask) returns (stream ExecutionResponse) {};
 
-service ExecutorService {
-    rpc ExecuteTask (Task) returns (SlaveExecutionResult) {};
+    // When there's more than one task to execute one after the other on the same server:
+    rpc ExecuteTaskQueue (ExecutableTaskQueue) returns (stream ExecutionResponse) {};
 }

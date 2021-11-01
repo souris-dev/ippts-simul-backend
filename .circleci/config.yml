@@ -24,14 +24,20 @@ jobs:
   test_master_slave:
     executor: node/default
     steps:
-      - checkout
-      - node/install-packages
       - run: npm run test
 
 workflows:
-  build_all:
+  build-and-test:
     jobs:
-      - buildall
-  test_master_slave:
-    jobs:
-      - test_master_slave
+      - buildall:
+          filters:
+            branches:
+              only:
+                - main
+      - test_master_slave:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+           - buildall

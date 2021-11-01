@@ -12,13 +12,14 @@
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.4",
     "grpc-tools": "^1.11.2",
-    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "grpc_tools_node_protoc_ts": "5.3.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
   },
   "scripts": {
     "test": "npm run build && cd master && npm test && cd ../slave && npm test",
-    "build": "tsc --build"
+    "proto-gen": "node scripts/do_protogen.js",
+    "build": "npm run proto-gen && echo Running tsc --build && tsc --build"
   },
   "repository": {
     "type": "git",

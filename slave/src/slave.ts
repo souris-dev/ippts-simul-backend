@@ -1,16 +1,29 @@
-import * as grpc from "@grpc/grpc-js"
-import * as protoLoader from "@grpc/proto-loader"
+import * as grpc from "@grpc/grpc-js";
 
-const PROTO_FOLDER: string = "../../proto"
+import "../protogen/slave_services_pb";
+import "../protogen/slave_services_grpc_pb";
 
-const options: protoLoader.Options = {
-    keepCase: true,
-    longs: String,
-    enums: String,
-    defaults: true,
-    oneofs: true,
-}
+import TaskExecutor from "./handlers/task_executor_handler";
 
-const stateInitBcastProto: grpc.GrpcObject = grpc.loadPackageDefinition(
-    protoLoader.loadSync(PROTO_FOLDER + "/state_init_bcase.proto", options)
+// get the variables in .env into process.env
+import dotenv = require("dotenv");
+dotenv.config();
+
+const port: string | number = process.env.PORT || 50051;
+const hostIp: string = process.env.HOSTBINDIP || "0.0.0.0";
+const slaveId: string | number = process.env.SLAVEID || 0;
+
+const server: grpc.Server = new grpc.Server();
+server.addService(TaskExecutor.service, TaskExecutor.handler);
+
+server.bindAsync(
+  `${hostIp}:${port}`,
+  grpc.ServerCredentials.createInsecure(),
+  (err: Error, port: number) => {
+    if (err != null) {
+      console.error(err);
+    }
+    server.start();
+    console.log(`SlaveServer ${slaveId} listening on port ${port} at ${hostIp}`);
+  }
 );

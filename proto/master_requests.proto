@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "basetypes.proto";
+
+message ExecutableTask {
+    Task task = 1;
+    int64 duration = 2; // how much time this task is supposed to take in ms
+}
+
+message ExecutableTaskQueue {
+    repeated ExecutableTask tasks = 1;
+}

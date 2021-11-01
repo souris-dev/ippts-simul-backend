@@ -1,3 +1,4 @@
 node_modules/
 jsbuild/
 tsconfig.tsbuildinfo
+conf.env
