@@ -147,7 +147,8 @@ cd slave
 Alternatively, instead of building the docker image manually, you can pull the docker image from Docker Hub.
 (This may or may not be a little outdated though.)
 
-See (the Docker Hub repository)[https://hub.docker.com/r/sachett/ippts_simul_backend] and run the pull command there to pull the image. *Use the tag `slave` for pulling a docker image of the slave server.*
+
+See [the Docker Hub repository for the backend](https://hub.docker.com/r/sachett/ippts_simul_backend) and run the pull command there to pull the image. *Use the tag `slave` for pulling a docker image of the slave server.*
 
 So, run this to pull the docker image of the slave server:
 
