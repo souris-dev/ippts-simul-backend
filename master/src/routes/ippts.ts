@@ -6,7 +6,7 @@ import {
 } from "../../../common/src/types/inittypes";
 import { assignTasksToServers } from "../ippts/ippts_algo";
 
-var router = express.Router();
+export var router = express.Router();
 
 router.post(
   "/",
@@ -67,5 +67,3 @@ router.post(
     }
   }
 );
-
-module.exports = router;
