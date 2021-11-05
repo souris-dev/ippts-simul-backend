@@ -99,8 +99,8 @@ export function calculatePCM(
     mapPcm[ti.task.taskId] = { task: ti.task, predictedCosts: [] };
 
     // find PCM(ti, sj) for each server sj given a task ti
-
     for (let sj: number = 0; sj < nservers; sj++) {
+
       // Functional js/ts looks funny doesn't it? :-))
       let sjMaxVal: number = Math.max(
         ...successorTasks.map((tk: Task, tkId: number): number => {
@@ -117,7 +117,6 @@ export function calculatePCM(
 
             // if sj == sy, then c_ik = 0 (add nothing to value above)
             // else add the edge value from task graph
-
             if (sj != sy) {
               value += taskGraph[ti.task.taskId].commCosts[tk.taskId].weight;
             }
@@ -134,6 +133,7 @@ export function calculatePCM(
 
       // add the predicted cost for this server into the matrix
       mapPcm[ti.task.taskId].predictedCosts.push({
+        
         // I needed to get the server object from somewhere, so:
         server: computationCostMat[ti.task.taskId].compCosts[sj].server,
         predictedCost: sjMaxVal,

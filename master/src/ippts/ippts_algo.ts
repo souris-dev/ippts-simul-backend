@@ -4,11 +4,8 @@ import {
   PredictCostMatrix as PCM,
   RankPcmArray,
   LhetMatrix,
-  ServerAssArray,
-  ServerAssMap,
   EftMatrixMap,
   LheadMatrixMap,
-  ServerAss,
 } from "../types/ipptstypes";
 import { SlaveServer, Task } from "../../../common/src/types/basetypes";
 import {
@@ -16,6 +13,9 @@ import {
   ComputationCostMatrix,
   ComputationCost,
   TaskGraphAdjMatrixMap,
+  ServerAssArray,
+  ServerAssMap,
+  ServerAss,
 } from "../../../common/src/types/inittypes";
 
 import {
