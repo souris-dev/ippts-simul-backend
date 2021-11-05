@@ -15,6 +15,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+//api routes
 app.use("/ippts", ipptsrouter);
 
 var server: http.Server = http.createServer(app);
@@ -27,6 +28,7 @@ const io = new Server(server_ws, {
   transports: ["websocket", "polling"],
 });
 
+//web socket routes
 io.of("/sim").on("connection", simulate);
 
 server_ws.listen(port_ws, () => {
@@ -36,5 +38,3 @@ server_ws.listen(port_ws, () => {
 server.listen(port, () => {
   console.log("Master server listening on port " + port);
 });
-
-
