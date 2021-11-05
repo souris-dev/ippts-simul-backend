@@ -1,9 +1,8 @@
 import {
   TaskGraphAdjMatrix,
   ComputationCostMatrix,
+  ServerAssArray,
 } from "../../common/src/types/inittypes";
-
-import { ServerAssArray } from "../src/types/ipptstypes";
 
 import * as ipalgo from "../src/ippts/ippts_algo";
 
