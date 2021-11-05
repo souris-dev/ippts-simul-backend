@@ -1,7 +1,6 @@
 import * as express from "express";
 import * as http from "http";
 import * as cors from "cors";
-import { AddressInfo } from "net";
 import { Server } from "socket.io";
 import { router as ipptsrouter } from "./routes/ippts";
 import { simulate } from "./routes/ws/simulate";
@@ -38,9 +37,4 @@ server.listen(port, () => {
   console.log("Master server listening on port " + port);
 });
 
-server.on("listening", onListening);
 
-function onListening() {
-  var addr: string | AddressInfo = server.address();
-  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-}
