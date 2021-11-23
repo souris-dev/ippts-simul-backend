@@ -21,7 +21,7 @@ router.post(
     Request body:
     {
       "taskGraph":[],
-      "computationCostMatrix":[],
+      "computationCost":[],
     }
   */
     var assignmentArray: ServerAssArray = [];
@@ -31,7 +31,7 @@ router.post(
     try {
       const taskGraph: TaskGraphAdjMatrix = req.body.taskGraph;
       const computationCost: ComputationCostMatrix = 
-          req.body.computationCostMatrix;
+          req.body.computationCost;
 
 
       //Error checking

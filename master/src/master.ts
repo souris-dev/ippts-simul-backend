@@ -1,7 +1,6 @@
 import * as express from "express";
 import * as http from "http";
 import * as cors from "cors";
-import { AddressInfo } from "net";
 import { Server } from "socket.io";
 import { router as ipptsrouter } from "./routes/ippts";
 import { simulate } from "./routes/ws/simulate";
@@ -16,6 +15,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+//api routes
 app.use("/ippts", ipptsrouter);
 
 var server: http.Server = http.createServer(app);
@@ -26,8 +26,13 @@ const io = new Server(server_ws, {
   pingTimeout: 60000,
   pingInterval: 25000,
   transports: ["websocket", "polling"],
+  cors:{
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  }
 });
 
+//web socket routes
 io.of("/sim").on("connection", simulate);
 
 server_ws.listen(port_ws, () => {
@@ -37,10 +42,3 @@ server_ws.listen(port_ws, () => {
 server.listen(port, () => {
   console.log("Master server listening on port " + port);
 });
-
-server.on("listening", onListening);
-
-function onListening() {
-  var addr: string | AddressInfo = server.address();
-  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-}
