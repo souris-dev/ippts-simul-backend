@@ -26,6 +26,10 @@ const io = new Server(server_ws, {
   pingTimeout: 60000,
   pingInterval: 25000,
   transports: ["websocket", "polling"],
+  cors:{
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  }
 });
 
 //web socket routes
