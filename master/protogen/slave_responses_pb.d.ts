@@ -1,4 +1,4 @@
-// package: 
+// package:
 // file: slave_responses.proto
 
 /* tslint:disable */
@@ -7,7 +7,7 @@
 import * as jspb from "google-protobuf";
 import * as basetypes_pb from "./basetypes_pb";
 
-export class ExecutionResponse extends jspb.Message { 
+export class ExecutionResponse extends jspb.Message {
 
     hasTask(): boolean;
     clearTask(): void;
