@@ -67,3 +67,7 @@ router.post(
     }
   }
 );
+
+router.get("/", function (req,res,next) {
+  res.send({data:"data"});
+})
