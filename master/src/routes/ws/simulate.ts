@@ -37,12 +37,11 @@ export const simulate = (socket: Socket) => {
 
       const stream = clients[element.server.serverId].executeTask(executableTask);
       stream.on("data", (response: ExecutionResponse) => {
-        //socket.emit("task " + element.task.taskId, response);
-        var emitData:  = {
+        var emitData: SimulationResponseData = {
           taskId: response.getTask().getTaskid(),
-
+          result: response.getResult().toString(),
         }
-
+        socket.emit("simulationresponse", emitData);
       })
     });
   });
