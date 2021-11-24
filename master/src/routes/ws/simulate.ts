@@ -9,7 +9,7 @@ import { ServerAssArray } from "../../../../common/src/types/inittypes";
 import { SimulationResponseData } from "../../../../common/src/types/inittypes";
 
 const host: string = process.env.HOSTBINDIP || "0.0.0.0";
-const urls: string[] = ["0.0.0.0:50051", "0.0.0.0:50052", "0.0.0.0:50053"];
+const urls: string[] = ["slave_0:50051", "slave_1:50052", "slave_2:50053"];
 
 const clients: TaskExecutorClient[] = urls.map((element) => {
   return new TaskExecutorClient(element, grpc.ChannelCredentials.createInsecure());
@@ -19,11 +19,13 @@ const clients: TaskExecutorClient[] = urls.map((element) => {
 export const simulate = (socket: Socket) => {
   socket.on("data", function(data) {
 
-    // Recieved Server Assign Data from Client
+    // received Server Assign Data from Client
     // The following json corresponds to common types
-    var recievedData: ServerAssArray = JSON.parse(data);
+    var receivedData: ServerAssArray = JSON.parse(data);
+    console.log("Got some data bro!");
+    console.log(receivedData);
 
-    recievedData.forEach(element => {
+    receivedData.forEach(element => {
 
       var task: Task = new Task();
       task.setTaskid(element.task.taskId);
