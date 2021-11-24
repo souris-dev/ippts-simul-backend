@@ -30,8 +30,8 @@ router.post(
 
     try {
       const taskGraph: TaskGraphAdjMatrix = req.body.taskGraph;
-      const computationCost: ComputationCostMatrix = 
-          req.body.computationCost;
+      const computationCost: ComputationCostMatrix =
+          req.body.computationCostMatrix;
 
 
       //Error checking
