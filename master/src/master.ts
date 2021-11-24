@@ -8,6 +8,7 @@ import { simulate } from "./routes/ws/simulate";
 const app: express.Application = express();
 const port: number = parseInt(process.env.PORT || "5030", 10);
 const port_ws: number = parseInt(process.env.PORT_IO || "5031", 10);
+const host: string = process.env.HOSTBINDIP || "0.0.0.0";
 
 app.set("port", port);
 
@@ -26,19 +27,19 @@ const io = new Server(server_ws, {
   pingTimeout: 60000,
   pingInterval: 25000,
   transports: ["websocket", "polling"],
-  cors:{
+  cors: {
     origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
   }
 });
 
 //web socket routes
 io.of("/sim").on("connection", simulate);
 
-server_ws.listen(port_ws, () => {
+server_ws.listen(port_ws, host, () => {
   console.log("Socket listening on port:" + port_ws);
 });
 
-server.listen(port, () => {
+server.listen(port, host, () => {
   console.log("Master server listening on port " + port);
 });

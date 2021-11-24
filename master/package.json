@@ -6,7 +6,10 @@
   "scripts": {
     "test": "npm run build && mocha ./jsbuild/test/**/*.js",
     "build": "tsc",
-    "start": "npm run build && node jsbuild/src/master.js"
+    "start": "npm run build && node jsbuild/src/master.js",
+    "docker:build": "npm run build && docker build -t sachett/ippts_simul_backend:master .",
+    "docker:run": "docker run -dp 5030:5030 -p 5031:5031 sachett/ippts_simul_backend:master",
+    "docker:push": "docker push sachett/ippts_simul_backend:master"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +23,7 @@
     "datastructures-js": "^10.1.1",
     "debug": "^4.3.2",
     "express": "^4.17.1",
+    "google-protobuf": "^3.19.1",
     "mocha": "^9.1.3",
     "socket.io": "^4.3.1"
   },
