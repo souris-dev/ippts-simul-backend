@@ -27,7 +27,8 @@ export const simulate = (socket: Socket) => {
 
     receivedData.forEach(element => {
 
-      var task: Task = new Task();
+      setTimeout(() => {
+        var task: Task = new Task();
       task.setTaskid(element.task.taskId);
       task.setExpression(element.task.expression || "0+0");
 
@@ -45,6 +46,10 @@ export const simulate = (socket: Socket) => {
         }
         socket.emit("simulationresponse", emitData);
       })
+        
+      }, element.est*1000);
+
+      
     });
   });
   socket.on("disconnect", () => {
