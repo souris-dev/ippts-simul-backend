@@ -22,16 +22,21 @@ export const simulate = (socket: Socket) => {
     // received Server Assign Data from Client
     // The following json corresponds to common types
     var receivedData: ServerAssArray = JSON.parse(data);
-    console.log("Got some data bro!");
-    console.log(receivedData);
-
-    receivedData.forEach(element => {
-
+    var timer: number = 0;
+    receivedData.forEach((element,index) => {
       setTimeout(() => {
-        var task: Task = new Task();
+      var task: Task = new Task();
       task.setTaskid(element.task.taskId);
       task.setExpression(element.task.expression || "0+0");
 
+      var start: Date | string = new Date(Date.now());
+      console.log(start);
+      socket.emit("simulationprogress", {
+        taskId: element.task.taskId,
+        result: "running",
+        serverTime: start.toUTCString(),
+        serverId: element.server.serverId
+      });
       var executableTask: ExecutableTask = new ExecutableTask();
       executableTask.setTask(task);
 
@@ -45,11 +50,15 @@ export const simulate = (socket: Socket) => {
           result: response.getResult().toString(),
         }
         socket.emit("simulationresponse", emitData);
-      })
-        
+        var end: Date | string = new Date(Date.now());
+        socket.emit("simulationprogress", {
+          taskId: element.task.taskId,
+          result: "completed",
+          serverTime: end.toUTCString(),
+          serverId: element.server.serverId,
+        });
+      })  
       }, element.est*1000);
-
-      
     });
   });
   socket.on("disconnect", () => {
