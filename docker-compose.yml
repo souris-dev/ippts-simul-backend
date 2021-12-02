@@ -11,6 +11,8 @@ services:
     environment:
       PORT: 50051
       SLAVEID: 0
+    ports:
+      - "50051:50051"
     networks:
       - ippts-simul-backend
     restart: on-failure
@@ -21,6 +23,8 @@ services:
     environment:
       PORT: 50052
       SLAVEID: 1
+    ports:
+      - "50052:50052"
     networks:
       - ippts-simul-backend
     restart: on-failure
@@ -31,6 +35,8 @@ services:
     environment:
       PORT: 50053
       SLAVEID: 2
+    ports:
+      - "50053:50053"
     networks:
       - ippts-simul-backend
     restart: on-failure
