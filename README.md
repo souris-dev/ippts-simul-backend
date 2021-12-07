@@ -4,6 +4,8 @@
 
 Simulation of the IPPTS algorithm (task scheduling algorithm) using a distributed system of servers. This repository has the code for the master and slave servers.
 
+Repository for the frontend: https://github.com/Malika01/ippts-simul-frontend
+
 ## Directory Structure
 
 A simplified view (with important files and directories) is:
